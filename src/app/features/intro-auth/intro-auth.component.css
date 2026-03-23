@@ -4,10 +4,11 @@
   background-image:
     linear-gradient(#00ff9f22 1px, transparent 1px),
     linear-gradient(90deg, #00ff9f22 1px, transparent 1px);
-  background-size: 50px 50px; /* 🔼 grid maior */
+  background-size: 50px 50px;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 16px;
 }
 
 .box {
@@ -15,28 +16,31 @@
   color: #00ff9f;
   font-family: monospace;
   animation: glow 2s infinite alternate;
+  width: 100%;
+  max-width: 500px;
 }
 
 .box h2 {
-  font-size: 24px;
+  font-size: clamp(18px, 3vw, 24px);
   margin-bottom: 20px;
   letter-spacing: 2px;
 }
 
 .scanner {
-  width: 425px;
+  width: 100%;
+  max-width: 425px;
   height: 270px;
   border: 2px solid #00ff9f;
   position: relative;
   overflow: hidden;
-  margin: 30px auto;
+  margin: 20px auto;
   border-radius: 12px;
   box-shadow: 0 0 25px #00ff9f33;
 }
 
 .scan-image {
   position: absolute;
-  width: 140px;
+  width: clamp(90px, 25vw, 140px);
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -64,48 +68,40 @@
 }
 
 .success {
-  margin-top: 20px;
-  font-size: 22px;
+  margin-top: 16px;
+  font-size: clamp(16px, 3vw, 22px);
   color: #00ff9f;
   font-weight: bold;
   animation: glow 1s infinite alternate;
 }
 
 @keyframes scanGlow {
-  0% {
-    top: 0;
-  }
-  100% {
-    top: 100%;
-  }
+  0% { top: 0; }
+  100% { top: 100%; }
 }
 
 @keyframes reveal {
-  0% {
-    opacity: 0.2;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0.2;
-  }
+  0% { opacity: 0.2; }
+  50% { opacity: 1; }
+  100% { opacity: 0.2; }
 }
 
 @keyframes scan {
-  0% {
-    top: 0;
-  }
-  100% {
-    top: 100%;
-  }
+  0% { top: 0; }
+  100% { top: 100%; }
 }
 
 @keyframes glow {
-  from {
-    text-shadow: 0 0 5px #00ff9f;
+  from { text-shadow: 0 0 5px #00ff9f; }
+  to { text-shadow: 0 0 25px #00ff9f; }
+}
+
+@media (max-width: 480px) {
+  .scanner {
+    height: 220px;
   }
-  to {
-    text-shadow: 0 0 25px #00ff9f;
+
+  .scan-line {
+    height: 2px;
   }
 }
