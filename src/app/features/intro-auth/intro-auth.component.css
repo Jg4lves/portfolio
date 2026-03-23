@@ -1,0 +1,111 @@
+.container {
+  height: 100vh;
+  background: black;
+  background-image:
+    linear-gradient(#00ff9f22 1px, transparent 1px),
+    linear-gradient(90deg, #00ff9f22 1px, transparent 1px);
+  background-size: 50px 50px; /* 🔼 grid maior */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box {
+  text-align: center;
+  color: #00ff9f;
+  font-family: monospace;
+  animation: glow 2s infinite alternate;
+}
+
+.box h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+}
+
+.scanner {
+  width: 425px;
+  height: 270px;
+  border: 2px solid #00ff9f;
+  position: relative;
+  overflow: hidden;
+  margin: 30px auto;
+  border-radius: 12px;
+  box-shadow: 0 0 25px #00ff9f33;
+}
+
+.scan-image {
+  position: absolute;
+  width: 140px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.3;
+  animation: reveal 2s infinite;
+  filter: brightness(0) saturate(100%) invert(70%) sepia(100%) saturate(500%) hue-rotate(80deg);
+}
+
+.scan-line {
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background: #00ff9f;
+  animation: scan 2.2s infinite;
+  box-shadow: 0 0 15px #00ff9f;
+}
+
+.scanner::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 60%;
+  background: linear-gradient(to bottom, transparent, #00ff9f33, transparent);
+  animation: scanGlow 2.2s infinite;
+}
+
+.success {
+  margin-top: 20px;
+  font-size: 22px;
+  color: #00ff9f;
+  font-weight: bold;
+  animation: glow 1s infinite alternate;
+}
+
+@keyframes scanGlow {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: 100%;
+  }
+}
+
+@keyframes reveal {
+  0% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.2;
+  }
+}
+
+@keyframes scan {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: 100%;
+  }
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 5px #00ff9f;
+  }
+  to {
+    text-shadow: 0 0 25px #00ff9f;
+  }
+}

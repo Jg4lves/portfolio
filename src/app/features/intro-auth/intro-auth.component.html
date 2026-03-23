@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="box">
+    <h2>{{ status }}</h2>
+
+    <div class="scanner">
+      <img [src]="currentImage" class="scan-image" />
+      <div class="scan-line"></div>
+    </div>
+
+    @if (done) {
+      <p class="success">ACCESS GRANTED ✔</p>
+    }
+  </div>
+</div>
