@@ -1,0 +1,92 @@
+<section class="about">
+
+  <div class="grid-overlay"></div>
+  <div class="scanlines"></div>
+
+  <div class="corner c-tl"></div>
+  <div class="corner c-tr"></div>
+  <div class="corner c-bl"></div>
+  <div class="corner c-br"></div>
+
+  <div class="container">
+
+    <p class="section-label">&gt;_ quemsoueu</p>
+    <h2 class="section-title">Sobre</h2>
+
+    <div class="grid">
+
+      <div class="card card-story">
+        <div class="story-text">
+          <h3 class="card-title">Quem é João Guilherme?</h3>
+          <p class="card-text">
+            Tenho <span>{{ age }} anos</span> e sou formado em <span>Ciência da Computação</span>. Desde cedo aprendi que entender como
+            as coisas funcionam por dentro é mais satisfatório do que simplesmente usá-las.
+            <br><br>
+            Comecei a programar movido pela curiosidade, e hoje transformo isso em
+            <span>soluções reais</span>, do back-end ao front-end, do banco de dados
+            à tela do usuário.
+            <br><br>
+            Acredito que bom código começa antes de abrir o editor. Por isso,
+            <span>sempre tenho um caderno do lado</span>, para esboçar, questionar
+            e organizar o raciocínio antes de escrever a primeira linha.
+          </p>
+
+          <div class="stats-row">
+            <div class="stat" *ngFor="let s of stats">
+              <span class="stat-number">{{ s.value }}</span>
+              <span class="stat-label">{{ s.label }}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="notebook" aria-hidden="true">
+          <div class="nb-cover">
+            <div class="nb-line accent"></div>
+            <div class="nb-line" *ngFor="let _ of [1,2]"></div>
+            <div class="nb-line accent"></div>
+            <div class="nb-line" *ngFor="let _ of [1,2,3]"></div>
+            <div class="nb-line accent"></div>
+            <div class="nb-line" *ngFor="let _ of [1,2]"></div>
+            <div class="nb-dot-row">
+              <div class="nb-dot"></div>
+              <div class="nb-dot"></div>
+              <div class="nb-dot"></div>
+            </div>
+            <div class="nb-text">// ideias<span class="nb-cursor"></span></div>
+            <div class="nb-text muted">// bugs?</div>
+            <div class="nb-text muted">// soluções</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3 class="card-title">Stack Principal</h3>
+        <div class="stack-list">
+          <div class="stack-item" *ngFor="let item of stackItems">
+            <div class="stack-header">
+              <span>{{ item.name }}</span>
+              <span>{{ item.level }}%</span>
+            </div>
+            <div class="stack-bar">
+              <div class="stack-fill" [style.width.%]="item.level"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3 class="card-title">Como trabalho</h3>
+        <div class="value-list">
+          <div class="value-item" *ngFor="let v of values">
+            <div class="value-icon" [innerHTML]="v.icon"></div>
+            <div class="value-text">
+              <div class="value-label">{{ v.title }}</div>
+              <div class="value-desc">{{ v.desc }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
