@@ -1,14 +1,58 @@
-<div class="container">
-  <div class="box">
-    <h2>{{ status }}</h2>
+<div class="cyber-bg">
+  <canvas #matrixCanvas></canvas>
 
-    <div class="scanner">
-      <img [src]="currentImage" class="scan-image" />
-      <div class="scan-line"></div>
+  <div class="grid-overlay"></div>
+  <div class="scanlines"></div>
+  <div class="vignette"></div>
+
+  <div class="corner c-tl"></div>
+  <div class="corner c-tr"></div>
+  <div class="corner c-bl"></div>
+  <div class="corner c-br"></div>
+
+  <div class="hud">
+    <div class="top-bar">
+      <div class="logo">
+        <span class="logo-title">SECURE TERMINAL v4.2.1</span>
+        <span class="logo-sub">ENCRYPTED CONNECTION ● AES-256-GCM</span>
+      </div>
+      <div class="status-pills">
+        <span class="pill green">● FIREWALL ACTIVE</span>
+        <span class="pill amber">⚠ THREAT LEVEL: {{ threatLevel }}</span>
+      </div>
     </div>
 
-    @if (done) {
-      <p class="success">ACCESS GRANTED ✔</p>
-    }
+    <div class="center-content">
+      <h1 class="big-text" [class.glitch]="glitchActive">CYBER_SEC</h1>
+
+      <div class="progress-wrap">
+        <div class="progress-label">
+          <span>SCANNING NETWORK</span>
+          <span>{{ scanPercent }}%</span>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" [style.width.%]="scanPercent"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bottom-bar">
+      <div class="hex-grid">
+        <div
+          class="hex-node"
+          *ngFor="let node of hexNodes; let i = index"
+          [style.animation-delay]="i * 0.4 + 's'"
+          [class.amber]="node.color === 'amber'"
+        >
+          <div class="inner-dot"></div>
+        </div>
+      </div>
+
+      <div class="terminal-log">
+        <div *ngFor="let log of terminalLogs">
+          SYS: <span>{{ log }}</span>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
