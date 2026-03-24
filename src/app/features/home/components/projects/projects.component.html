@@ -1,0 +1,136 @@
+<section class="projects">
+  <div class="grid-overlay"></div>
+  <div class="scanlines"></div>
+
+  <div class="corner c-tl"></div>
+  <div class="corner c-tr"></div>
+  <div class="corner c-bl"></div>
+  <div class="corner c-br"></div>
+
+  <div class="container">
+    <p class="section-label">&gt;_ ls ./projects</p>
+    <h2 class="section-title">Projetos</h2>
+
+    <div class="cards-grid">
+      <div class="card" *ngFor="let project of projects; let i = index">
+        <div class="card-preview" [ngClass]="project.previewClass">
+          <ng-container *ngIf="project.id === 'psi'">
+            <div class="psi-bg"></div>
+            <div class="scan-line"></div>
+
+            <div class="psi-icon">
+              <div class="psi-cross"></div>
+              <span class="preview-label">psychology.care</span>
+            </div>
+          </ng-container>
+
+          <ng-container *ngIf="project.id === 'space'">
+            <div class="scan-line" style="animation-delay: 0.8s"></div>
+
+            <div class="rocket">
+              <svg class="rocket-svg" viewBox="0 0 44 44" fill="none">
+                <path
+                  d="M22 4 C22 4 30 10 30 22 L22 38 L14 22 C14 10 22 4 22 4Z"
+                  stroke="rgba(0,255,70,0.7)"
+                  stroke-width="1.2"
+                  fill="rgba(0,255,70,0.06)"
+                />
+                <circle
+                  cx="22"
+                  cy="20"
+                  r="4"
+                  stroke="rgba(0,255,70,0.6)"
+                  stroke-width="1"
+                  fill="none"
+                />
+                <path
+                  d="M14 24 L8 30 L14 28"
+                  stroke="rgba(0,255,70,0.4)"
+                  stroke-width="1"
+                  fill="none"
+                />
+                <path
+                  d="M30 24 L36 30 L30 28"
+                  stroke="rgba(0,255,70,0.4)"
+                  stroke-width="1"
+                  fill="none"
+                />
+                <path
+                  d="M19 36 Q22 40 25 36"
+                  stroke="rgba(0,255,70,0.3)"
+                  stroke-width="1"
+                  fill="none"
+                />
+              </svg>
+
+              <span class="preview-label">space-cruise.launch</span>
+            </div>
+          </ng-container>
+
+          <ng-container *ngIf="project.id === 'app'">
+            <div class="scan-line" style="animation-delay: 1.4s"></div>
+
+            <div class="app-icon-wrap">
+              <div class="app-ring">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="rgba(0,255,70,0.8)"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+                  <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+                </svg>
+              </div>
+
+              <span class="preview-label">medAlert.app</span>
+            </div>
+          </ng-container>
+        </div>
+
+        <div class="card-body">
+          <span class="card-index"> // projeto {{ (i + 1).toString().padStart(2, '0') }} </span>
+
+          <h3 class="card-name" [innerHTML]="project.name"></h3>
+
+          <p class="card-desc">
+            {{ project.desc }}
+          </p>
+
+          <div class="card-footer">
+            <div class="tags">
+              <span class="tag" *ngFor="let tag of project.tags">
+                {{ tag }}
+              </span>
+            </div>
+
+            <div class="card-links">
+              <a
+                class="btn-link primary"
+                [href]="project.liveUrl || '#'"
+                target="_blank"
+                rel="noopener"
+              >
+                [ {{ project.liveLabel }} ]
+              </a>
+
+              <a
+                class="btn-link"
+                *ngIf="project.githubUrl"
+                [href]="project.githubUrl"
+                target="_blank"
+                rel="noopener"
+              >
+                [ GitHub ]
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
