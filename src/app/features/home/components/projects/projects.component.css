@@ -3,6 +3,7 @@
 :host {
   display: block;
   width: 100%;
+  --corner-offset: 30px;
 
   --green: #00ff46;
   --green-dim: rgba(0, 255, 70, 0.45);
@@ -110,6 +111,10 @@
 .container {
   position: relative;
   z-index: 1;
+    padding-left: var(--corner-offset);
+  padding-right: var(--corner-offset);
+  padding-top: 80px;
+  padding-bottom: 60px;
 }
 
 .section-label {
@@ -146,6 +151,9 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 32px;
+    width: 100%;
+  max-width: calc(100% - (var(--corner-offset) * 2));
+  margin: 0 auto;
 }
 
 .card {
@@ -305,7 +313,7 @@
 
 .card-desc {
   font-family: var(--font-mono);
-  font-size: 16px;
+  font-size: 20px;
   line-height: 1.9;
   color: rgba(0, 255, 70, 0.5);
   flex: 1;
