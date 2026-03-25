@@ -1,0 +1,42 @@
+<section class="experience">
+  <div class="grid-overlay"></div>
+  <div class="scanlines"></div>
+
+  <div class="corner c-tl"></div>
+  <div class="corner c-tr"></div>
+  <div class="corner c-bl"></div>
+  <div class="corner c-br"></div>
+
+  <div class="container">
+    <p class="section-label">&gt;_ historico.log</p>
+    <h2 class="section-title">Experiência</h2>
+
+    <div class="timeline">
+      <div class="timeline-line"></div>
+
+      <div class="exp-card" *ngFor="let exp of experiences; let i = index">
+        <div class="exp-node">
+          <div class="node-dot"></div>
+          <div class="node-pulse"></div>
+        </div>
+
+        <div class="exp-content">
+          <div class="exp-header">
+            <div class="exp-meta">
+              <span class="exp-period">{{ exp.period }}</span>
+              <span class="exp-badge" *ngIf="exp.current">● ATUAL</span>
+            </div>
+            <h3 class="exp-role">{{ exp.role }}</h3>
+            <p class="exp-company">{{ exp.company }}</p>
+          </div>
+
+          <p class="exp-desc">{{ exp.desc }}</p>
+
+          <div class="exp-tags">
+            <span class="tag" *ngFor="let tech of exp.techs">{{ tech }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
