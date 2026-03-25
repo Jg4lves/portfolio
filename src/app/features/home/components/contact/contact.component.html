@@ -1,0 +1,49 @@
+<section class="contact">
+  <div class="grid-overlay"></div>
+  <div class="scanlines"></div>
+
+  <div class="corner c-tl"></div>
+  <div class="corner c-tr"></div>
+  <div class="corner c-bl"></div>
+  <div class="corner c-br"></div>
+
+  <div class="container">
+    <p class="section-label">&gt;_ contato.init()</p>
+    <h2 class="section-title">Contato</h2>
+
+    <div class="contact-grid">
+      <div class="contact-intro">
+        <p class="intro-text">
+          Aberto a <span>novas oportunidades</span>, colaborações e conversas sobre tecnologia. Se
+          tiver um projeto interessante ou quiser trocar uma ideia, é só chamar.
+        </p>
+        <div class="status-row">
+          <span class="status-dot"></span>
+          <span class="status-label">Disponível para oportunidades</span>
+        </div>
+      </div>
+
+      <div class="links-col">
+        <a
+          class="contact-link"
+          *ngFor="let link of contactLinks"
+          [href]="link.href"
+          target="_blank"
+          rel="noopener"
+        >
+          <div class="link-icon" [innerHTML]="link.icon"></div>
+          <div class="link-body">
+            <span class="link-label">{{ link.label }}</span>
+            <span class="link-value">{{ link.value }}</span>
+          </div>
+          <div class="link-arrow">→</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="terminal-footer">
+      <span class="footer-mono">&gt;_ joão_guilherme --status connected</span>
+      <span class="footer-cursor"></span>
+    </div>
+  </div>
+</section>
