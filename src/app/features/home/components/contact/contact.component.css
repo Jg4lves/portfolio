@@ -40,7 +40,6 @@
   padding: 80px 60px;
   display: flex;
   box-sizing: border-box;
-  background: var(--bg);
 }
 
 .grid-overlay {
@@ -242,7 +241,6 @@
   transform: translateX(4px);
 }
 
-/* Footer terminal */
 .terminal-footer {
   border-top: 1px solid rgba(0, 255, 70, 0.1);
   padding-top: 24px;

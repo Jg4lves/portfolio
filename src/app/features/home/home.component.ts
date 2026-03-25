@@ -4,10 +4,11 @@ import { AboutComponent } from './components/about/about.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { ExperienceComponent } from './components/experience/experience.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { BackgroundComponent } from './components/background/background.component';
 
 @Component({
   selector: 'app-home',
-  imports: [HeroComponent, AboutComponent, ProjectsComponent, ExperienceComponent, ContactComponent],
+  imports: [HeroComponent, AboutComponent, ProjectsComponent, ExperienceComponent, ContactComponent, BackgroundComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })

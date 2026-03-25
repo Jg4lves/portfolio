@@ -33,7 +33,6 @@
   padding: 80px 60px;
   display: flex;
   box-sizing: border-box;
-  background: var(--bg);
 }
 
 .grid-overlay {
