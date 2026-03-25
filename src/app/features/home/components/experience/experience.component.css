@@ -110,6 +110,7 @@
   text-shadow: 0 0 24px rgba(0, 255, 70, 0.5);
   margin-bottom: 60px;
   display: inline-block;
+  animation: fadeSlideUp 0.9s ease 0.1s both;
 }
 .section-title::after {
   content: '';
@@ -126,6 +127,7 @@
   flex-direction: column;
   gap: 0;
   padding-left: 40px;
+  animation: fadeSlideDown 0.9s ease 0.1s both;
 }
 
 .timeline-line {
