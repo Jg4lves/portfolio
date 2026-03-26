@@ -266,15 +266,163 @@
   animation: blink 1s step-end infinite;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .contact {
-    padding: 60px 28px;
+    padding: 70px 40px;
+    min-height: 5dvh;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
+
   .section-title {
-    font-size: 28px;
+    font-size: 40px;
+    margin-bottom: 40px;
   }
+
+  .contact-grid {
+    gap: 40px;
+  }
+
+  .intro-text {
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  .status-label {
+    font-size: 13px;
+  }
+
+  .contact-link {
+    padding: 18px 20px;
+    gap: 16px;
+  }
+
+  .link-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .link-label {
+    font-size: 11px;
+  }
+
+  .link-value {
+    font-size: 16px;
+  }
+
+  .link-arrow {
+    font-size: 16px;
+  }
+
+  .terminal-footer {
+    padding-top: 20px;
+  }
+
+  .footer-mono {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 600px) {
+  .contact {
+    padding: 50px 18px;
+        min-height: 5dvh;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .section-label {
+    font-size: 9px;
+    letter-spacing: 3px;
+  }
+
+  .section-title {
+    font-size: 26px;
+    letter-spacing: 2px;
+    margin-bottom: 28px;
+  }
+
   .contact-grid {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 28px;
+    margin-bottom: 40px;
+  }
+
+  .intro-text {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+
+  .status-row {
+    gap: 8px;
+  }
+
+  .status-dot {
+    width: 6px;
+    height: 6px;
+  }
+
+  .status-label {
+    font-size: 11px;
+    letter-spacing: 1px;
+  }
+
+  .links-col {
+    gap: 12px;
+  }
+
+  .contact-link {
+    padding: 16px;
+    gap: 12px;
+    transform: none;
+  }
+
+  .contact-link:hover {
+    transform: none;
+  }
+
+  .link-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .link-body {
+    gap: 2px;
+  }
+
+  .link-label {
+    font-size: 10px;
+    letter-spacing: 2px;
+  }
+
+  .link-value {
+    font-size: 14px;
+  }
+
+  .link-arrow {
+    font-size: 14px;
+  }
+
+  .terminal-footer {
+    padding-top: 0px;
+  }
+
+  .footer-mono {
+    font-size: 12px;
+    letter-spacing: 1px;
+  }
+
+  .scanlines {
+    display: none;
+  }
+
+  .corner {
+    width: 14px;
+    height: 14px;
   }
 }

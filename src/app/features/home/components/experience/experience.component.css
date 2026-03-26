@@ -267,14 +267,160 @@
   background: rgba(0, 255, 70, 0.03);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .experience {
-    padding: 60px 28px;
+    padding: 70px 40px;
+    min-height: 5dvh;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
+
   .section-title {
-    font-size: 28px;
+    font-size: 40px;
+    margin-bottom: 40px;
   }
+
+  .timeline {
+    padding-left: 30px;
+  }
+
+  .timeline-line {
+    left: 6px;
+  }
+
+  .exp-card {
+    gap: 24px;
+    padding-bottom: 40px;
+  }
+
+  .exp-node {
+    left: -30px;
+  }
+
   .exp-content {
-    padding: 20px;
+    padding: 24px;
+  }
+
+  .exp-role {
+    font-size: 20px;
+  }
+
+  .exp-company {
+    font-size: 12px;
+  }
+
+  .exp-desc {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .exp-period {
+    font-size: 10px;
+  }
+
+  .exp-badge {
+    font-size: 8px;
+  }
+
+  .tag {
+    font-size: 10px;
+    padding: 3px 8px;
+  }
+}
+
+@media (max-width: 600px) {
+  .experience {
+    padding: 50px 18px;
+  }
+
+  .section-label {
+    font-size: 9px;
+    letter-spacing: 3px;
+  }
+
+  .section-title {
+    font-size: 26px;
+    letter-spacing: 2px;
+    margin-bottom: 28px;
+  }
+
+  /* 🔥 timeline simplificada */
+  .timeline {
+    padding-left: 20px;
+  }
+
+  .timeline-line {
+    left: 4px;
+  }
+
+  .exp-card {
+    gap: 16px;
+    padding-bottom: 32px;
+  }
+
+  .exp-node {
+    left: -20px;
+    top: 4px;
+  }
+
+  .node-dot {
+    width: 6px;
+    height: 6px;
+  }
+
+  .node-pulse {
+    width: 12px;
+    height: 12px;
+  }
+
+  .exp-content {
+    padding: 18px;
+  }
+
+  .exp-meta {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .exp-role {
+    font-size: 18px;
+  }
+
+  .exp-company {
+    font-size: 11px;
+  }
+
+  .exp-desc {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .exp-period {
+    font-size: 9px;
+  }
+
+  .exp-badge {
+    font-size: 8px;
+    padding: 2px 6px;
+  }
+
+  .exp-tags {
+    gap: 6px;
+  }
+
+  .tag {
+    font-size: 9px;
+    padding: 2px 6px;
+  }
+
+  .scanlines {
+    display: none;
+  }
+
+  .corner {
+    width: 14px;
+    height: 14px;
   }
 }

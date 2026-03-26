@@ -287,3 +287,96 @@ canvas {
     color: rgba(0, 255, 70, 0.75);
   }
 }
+
+@media (max-width: 1024px) {
+  .hud {
+    padding: 24px;
+  }
+
+  .big-text {
+    font-size: 32px;
+    letter-spacing: 8px;
+    text-align: center;
+  }
+
+  .progress-wrap {
+    width: 260px;
+  }
+
+  .top-bar {
+    gap: 10px;
+  }
+
+  .logo-title {
+    font-size: 10px;
+    letter-spacing: 3px;
+  }
+
+  .logo-sub {
+    font-size: 9px;
+  }
+
+  .pill {
+    font-size: 9px;
+    padding: 2px 8px;
+  }
+
+  .hex-node {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hud {
+    padding: 16px;
+  }
+
+  .top-bar {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .status-pills {
+    align-items: flex-start;
+  }
+
+  .big-text {
+    font-size: 24px;
+    letter-spacing: 4px;
+  }
+
+  .center-content {
+    gap: 14px;
+  }
+
+  .progress-wrap {
+    width: 100%;
+    max-width: 220px;
+  }
+
+  .bottom-bar {
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .hex-grid {
+    gap: 6px;
+  }
+
+  .hex-node {
+    width: 20px;
+    height: 20px;
+  }
+
+  .terminal-log {
+    font-size: 9px;
+    text-align: left;
+  }
+
+  .corner {
+    width: 16px;
+    height: 16px;
+  }
+}
