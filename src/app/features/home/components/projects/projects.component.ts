@@ -40,7 +40,7 @@ export class ProjectsComponent {
       tags: ['Angular', 'TypeScript', 'SCSS'],
       liveUrl: 'https://cruzeiro-astra.vercel.app',
       liveLabel: 'Ver site',
-      githubUrl: 'https://github.com/jg4lves',
+     /*  githubUrl: 'https://github.com/jg4lves', */
     },
     {
       id: 'app',
@@ -48,9 +48,9 @@ export class ProjectsComponent {
       desc: 'App de notificação de remédios com alertas personalizáveis.',
       previewClass: 'preview-app',
       tags: ['Flutter', 'Dart', 'Mobile', 'Notificação'],
-      liveUrl: '',
-      liveLabel: 'Em breve',
-      githubUrl: 'https://github.com/jg4lves',
+      liveUrl: 'https://www.linkedin.com/posts/jgalves_flutter-mobiledev-figma-ugcPost-7404268350098522112-IpFd?utm_source=share&utm_medium=member_desktop&rcm=ACoAADnO8HoBkCGsHs73Jey_XhU5vSGcUL0yyxc',
+      liveLabel: 'Publicação',
+      /* githubUrl: 'https://github.com/jg4lves', */
     },
   ];
 }
