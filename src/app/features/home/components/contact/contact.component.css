@@ -4,6 +4,7 @@
   display: block;
   width: 100%;
   --green: #00ff46;
+  --green-dim: rgba(0, 255, 70, 0.45);
   --green-faint: rgba(0, 255, 70, 0.04);
   --green-border: rgba(0, 255, 70, 0.12);
   --bg: #010c03;
@@ -40,29 +41,6 @@
   padding: 80px 60px;
   display: flex;
   box-sizing: border-box;
-}
-
-.grid-overlay {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background-image:
-    linear-gradient(rgba(0, 255, 70, 0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 255, 70, 0.025) 1px, transparent 1px);
-  background-size: 44px 44px;
-}
-
-.scanlines {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: repeating-linear-gradient(
-    to bottom,
-    transparent 0px,
-    transparent 3px,
-    rgba(0, 0, 0, 0.12) 3px,
-    rgba(0, 0, 0, 0.12) 4px
-  );
 }
 
 .corner {
@@ -108,6 +86,37 @@
   margin-bottom: 8px;
 }
 
+
+.prompt-line {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  letter-spacing: 1px;
+  color: var(--green-dim);
+  margin-bottom: 18px;
+}
+
+.prompt-user {
+  color: var(--green-bright);
+}
+.prompt-path {
+  color: rgba(0, 255, 70, 0.85);
+}
+
+.prompt-typed {
+  color: rgba(0, 255, 70, 0.85);
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid var(--green);
+  animation:
+    typeLine 1.6s steps(20, end) 0.3s both,
+    caret 0.9s step-end infinite;
+}
+
+
 .section-title {
   font-size: 48px;
   font-weight: 700;
@@ -141,12 +150,12 @@
   font-family: var(--font-mono);
   font-size: 18px;
   line-height: 1.8;
-  color: rgba(0, 255, 70, 0.5);
+  color: white;
   margin: 0 0 32px;
 }
 
 .intro-text span {
-  color: rgba(0, 255, 70, 0.9);
+  color: rgba(149, 255, 175, 0.9);
 }
 
 .status-row {
@@ -178,12 +187,14 @@
 }
 
 .contact-link {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 20px;
   padding: 20px 24px;
   border: 1px solid var(--green-border);
-  background: var(--green-faint);
+  background: linear-gradient(var(--green-faint), var(--green-faint)), var(--bg);
+  overflow: hidden;
   text-decoration: none;
   transition:
     border-color 0.3s ease,
@@ -193,8 +204,40 @@
 
 .contact-link:hover {
   border-color: rgba(0, 255, 70, 0.35);
-  background: rgba(0, 255, 70, 0.06);
+  background: linear-gradient(rgba(0, 255, 70, 0.06), rgba(0, 255, 70, 0.06)), var(--bg);
   transform: translateX(4px);
+}
+
+.contact-link::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    linear-gradient(rgba(0, 255, 70, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 70, 0.025) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+.contact-link::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 3px,
+    rgba(0, 0, 0, 0.1) 3px,
+    rgba(0, 0, 0, 0.1) 4px
+  );
+}
+
+.contact-link > * {
+  position: relative;
+  z-index: 1;
 }
 
 .link-icon {
@@ -226,7 +269,7 @@
   font-family: var(--font-mono);
   font-size: 18px;
   letter-spacing: 1px;
-  color: rgba(0, 255, 70, 0.75);
+  color: white;
 }
 
 .link-arrow {
@@ -255,7 +298,7 @@
   font-family: var(--font-mono);
   font-size: 12px;
   letter-spacing: 2px;
-  color: rgba(0, 255, 70, 0.25);
+  color: rgba(0, 255, 68, 0.25);
 }
 
 .footer-cursor {
@@ -328,16 +371,11 @@
 @media (max-width: 600px) {
   .contact {
     padding: 50px 18px;
-        min-height: 5dvh;
+    min-height: 5dvh;
     height: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
-  }
-
-  .section-label {
-    font-size: 9px;
-    letter-spacing: 3px;
   }
 
   .section-title {
@@ -417,7 +455,7 @@
     letter-spacing: 1px;
   }
 
-  .scanlines {
+  .contact-link::after {
     display: none;
   }
 
