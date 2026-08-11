@@ -5,9 +5,12 @@
   width: 100%;
 
   --green: #00ff46;
-  --green-dim: rgba(0, 255, 70, 0.45);
+  --green-bright: #7dffb0; /* usado em texto de leitura, mais claro que o accent puro */
+  --green-dim: rgba(0, 255, 70, 0.65);
   --green-faint: rgba(0, 255, 70, 0.08);
+  --text-body: rgba(214, 255, 226, 0.92); /* corpo de texto legível */
   --bg: #010c03;
+  --panel-bg: rgba(1, 10, 4, 0.62); /* painel atrás do bloco de texto p/ separar do fundo */
   --font-mono: 'Share Tech Mono', 'Courier New', monospace;
   --font-display: 'Rajdhani', 'Courier New', monospace;
 }
@@ -77,7 +80,7 @@
 .hero {
   position: relative;
   width: 100%;
-  height: 80vh;
+  height: 86vh;
   min-height: auto;
   overflow: hidden;
   font-family: var(--font-display);
@@ -119,13 +122,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  z-index: 6;
 }
 
 .top-label {
   font-family: var(--font-mono);
   font-size: 11px;
   letter-spacing: 3px;
-  color: var(--green-dim);
+  color: rgba(0, 255, 70, 0.85);
   text-transform: uppercase;
 }
 
@@ -136,7 +140,7 @@
   font-family: var(--font-mono);
   font-size: 10px;
   letter-spacing: 2px;
-  color: var(--green-dim);
+  color: rgba(0, 255, 70, 0.85);
 }
 
 .dot {
@@ -155,8 +159,8 @@
   align-items: center;
   justify-content: space-between;
 
-  padding: 0 10%;
-  max-width: 1400px;
+  padding: 0 8%;
+  max-width: 1500px;
   margin: 0 auto;
   z-index: 5;
   pointer-events: none;
@@ -170,22 +174,28 @@
 }
 
 .left {
-  gap: 24px;
+  gap: 20px;
   flex: 1;
-  max-width: 650px;
+  max-width: 800px;
   z-index: 10;
+  position: relative;
+  padding: 38px 60px;
+  background: var(--panel-bg);
+  border: 1px solid rgba(0, 255, 70, 0.15);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
 }
 
 .right {
   align-items: center;
-  gap: 20px;
+  gap: 30px;
   flex-shrink: 0;
 }
 
 .tag {
   font-family: var(--font-mono);
-  font-size: 15px;
-  letter-spacing: 4px;
+  font-size: 13px;
+  letter-spacing: 3px;
   color: var(--green);
   text-transform: uppercase;
   text-shadow: 0 0 12px rgba(0, 255, 70, 0.7);
@@ -200,18 +210,18 @@
 }
 
 .name-first {
-  font-size: 40px;
+  font-size: 22px;
   font-weight: 300;
-  letter-spacing: 8px;
-  color: rgba(0, 255, 70, 0.6);
+  letter-spacing: 5px;
+  color: var(--green-bright);
   text-transform: uppercase;
 }
 
 .name-last {
-  font-size: 60px;
+  font-size: 58px;
   font-weight: 700;
-  line-height: 1;
-  letter-spacing: 3px;
+  line-height: 1.05;
+  letter-spacing: 2px;
   text-transform: uppercase;
   color: var(--green);
   text-shadow:
@@ -224,55 +234,61 @@
 }
 
 .role {
-  font-size: 25px;
-  font-weight: 300;
-  letter-spacing: 6px;
-  color: rgba(255, 255, 255, 0.3);
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 4px;
+  color: rgba(255, 255, 255, 0.75);
   text-transform: uppercase;
   animation: fadeSlideUp 1s ease 0.2s both;
 }
 
 .divider {
-  width: 60px;
-  height: 1px;
+  width: 72px;
+  height: 2px;
   background: rgba(0, 255, 70, 0.4);
   animation: expandLine 1s ease 0.4s both;
 }
 
 .bio {
   font-family: var(--font-mono);
-  font-size: 25px;
-  line-height: 1.85;
-  letter-spacing: 1px;
-  color: rgba(0, 255, 70, 0.45);
+  font-size: 20px;
+  line-height: 1.7;
+  letter-spacing: 0.2px;
+  color: var(--text-body);
   max-width: auto;
   animation: fadeIn 1s ease 0.5s both;
 
   span {
-    color: rgba(0, 255, 70, 0.85);
+    color: var(--green);
+    font-weight: 700;
+    text-shadow: 0 0 10px rgba(0, 255, 70, 0.35);
   }
 }
 
 .actions {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 14px;
   animation: fadeIn 1s ease 0.7s both;
 }
 
 .btn-primary {
-  padding: 10px 28px;
+  height: 44px;
+  padding: 0 28px;
+  box-sizing: border-box;
   border: 1px solid var(--green);
   background: var(--green-faint);
   color: var(--green);
   font-family: var(--font-mono);
-  font-size: 18px;
-  letter-spacing: 3px;
+  font-size: 14px;
+  letter-spacing: 2px;
   text-transform: uppercase;
   cursor: pointer;
   text-shadow: 0 0 8px rgba(0, 255, 70, 0.6);
   text-decoration: none;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   transition:
     background 0.2s ease,
     box-shadow 0.2s ease;
@@ -289,14 +305,14 @@
 }
 
 .social-icon {
-  width: 34px;
-  height: 34px;
-  border: 1px solid rgba(0, 255, 70, 0.25);
+  width: 38px;
+  height: 44px;
+  border: 1px solid rgba(0, 255, 70, 0.4);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  color: rgba(0, 255, 70, 0.5);
+  color: rgba(0, 255, 70, 0.75);
   text-decoration: none;
   transition:
     border-color 0.2s,
@@ -304,22 +320,22 @@
     color 0.2s;
 
   svg {
-    width: 20px;
-    height: 20px;
+    width: 19px;
+    height: 19px;
     fill: currentColor;
   }
 
   &:hover {
-    border-color: rgba(0, 255, 70, 0.7);
-    background: rgba(0, 255, 70, 0.08);
+    border-color: var(--green);
+    background: rgba(0, 255, 70, 0.1);
     color: var(--green);
   }
 }
 
 .avatar-wrap {
   position: relative;
-  width: 400px;
-  height: 400px;
+  width: 360px;
+  height: 360px;
 }
 
 .avatar-ring {
@@ -382,9 +398,9 @@
 
 .avatar-label {
   font-family: var(--font-mono);
-  font-size: 16px;
+  font-size: 13px;
   letter-spacing: 3px;
-  color: rgba(0, 255, 70, 0.4);
+  color: rgba(0, 255, 70, 0.75);
   text-transform: uppercase;
   text-align: center;
   animation: fadeIn 0.8s ease both;
@@ -392,19 +408,20 @@
 
 .tech-pills {
   display: flex;
-  gap: 8px;
+  gap: 10px;
   flex-wrap: wrap;
   justify-content: center;
-  max-width: 300px;
+  max-width: 340px;
 }
 
 .pill {
   font-family: var(--font-mono);
-  font-size: 18px;
-  letter-spacing: 2px;
-  padding: 3px 10px;
-  border: 1px solid rgba(0, 255, 70, 0.2);
-  color: rgba(0, 255, 70, 0.5);
+  font-size: 15px;
+  letter-spacing: 1px;
+  padding: 6px 12px;
+  border: 1px solid rgba(0, 255, 70, 0.4);
+  background: rgba(0, 255, 70, 0.05);
+  color: rgba(0, 255, 70, 0.9);
   text-transform: uppercase;
   animation: fadeIn 0.8s ease both;
 }
@@ -417,13 +434,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  z-index: 6;
 }
 
 .bottom-label {
   font-family: var(--font-mono);
   font-size: 12px;
   letter-spacing: 2px;
-  color: rgba(0, 255, 70, 0.3);
+  color: rgba(0, 255, 70, 0.6);
 }
 
 .scroll-hint {
@@ -433,68 +451,102 @@
   font-family: var(--font-mono);
   font-size: 10px;
   letter-spacing: 2px;
-  color: rgba(0, 255, 70, 0.35);
+  color: rgba(0, 255, 70, 0.65);
 }
 
 .scroll-arrow {
   display: inline-block;
   animation: bounceDown 1.5s ease-in-out infinite;
 }
+@media (max-width: 1200px) {
+  .content {
+    padding: 0 5%;
+    gap: 40px;
+  }
+
+  .left {
+    max-width: 650px;
+    padding: 34px 44px;
+  }
+
+  .name-last {
+    font-size: 52px;
+  }
+
+  .bio {
+    font-size: 18px;
+  }
+
+  .avatar-wrap {
+    width: 320px;
+    height: 320px;
+  }
+}
+
 @media (max-width: 1024px) {
   .hero {
-    min-height: 55dvh;
+    min-height: 70dvh;
     height: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
   }
+
   .content {
     position: relative;
-    padding: 120px 10% 100px;
-    gap: 32px;
+    flex-direction: column;
+    padding: 110px 6% 90px;
+    gap: 40px;
     align-items: center;
   }
 
   .left {
-    max-width: 520px;
+    width: 100%;
+    max-width: 620px;
+    box-sizing: border-box;
+    padding: 34px 42px;
+  }
+
+  .right {
+    gap: 24px;
   }
 
   .name-first {
-    font-size: 30px;
-    letter-spacing: 5px;
+    font-size: 20px;
+    letter-spacing: 4px;
   }
 
   .name-last {
-    font-size: 44px;
+    font-size: 46px;
   }
 
   .role {
-    font-size: 18px;
+    font-size: 14px;
     letter-spacing: 3px;
   }
 
   .bio {
     font-size: 16px;
-    line-height: 1.6;
+    line-height: 1.65;
   }
 
   .btn-primary {
-    font-size: 14px;
-    padding: 8px 18px;
+    font-size: 12px;
+    padding: 10px 20px;
   }
 
   .avatar-wrap {
-    width: 240px;
-    height: 240px;
+    width: 270px;
+    height: 270px;
   }
 
   .tech-pills {
-    max-width: 240px;
+    max-width: 300px;
   }
 
   .pill {
-    font-size: 13px;
-    padding: 2px 8px;
+    font-size: 12px;
+    padding: 5px 10px;
   }
 
   .top-bar,
@@ -504,28 +556,27 @@
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
   .hero {
     min-height: 100dvh;
     height: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
   }
 
   .content {
-    position: relative;
     flex-direction: column-reverse;
     align-items: center;
     text-align: center;
     gap: 28px;
-    padding: 120px 10% 100px;
+    padding: 105px 5% 95px;
   }
 
   .left {
-    max-width: 100%;
+    width: 100%;
+    max-width: 520px;
     align-items: center;
     height: auto;
+    padding: 28px 24px;
+    box-sizing: border-box;
   }
 
   .right {
@@ -549,22 +600,22 @@
   }
 
   .name-first {
-    font-size: 24px;
-    letter-spacing: 4px;
+    font-size: 17px;
+    letter-spacing: 3px;
   }
 
   .name-last {
-    font-size: 32px;
+    font-size: 34px;
   }
 
   .role {
-    font-size: 16px;
-    letter-spacing: 3px;
+    font-size: 13px;
+    letter-spacing: 2px;
   }
 
   .tag {
-    font-size: 12px;
-    letter-spacing: 3px;
+    font-size: 11px;
+    letter-spacing: 2px;
   }
 
   .bio {
@@ -587,13 +638,13 @@
   }
 
   .avatar-wrap {
-    width: 120px;
-    height: 120px;
+    width: 180px;
+    height: 180px;
   }
 
   .avatar-label {
     margin-top: 10px;
-    font-size: 12px;
+    font-size: 11px;
   }
 
   .tech-pills {
@@ -602,7 +653,7 @@
   }
 
   .pill {
-    font-size: 12px;
+    font-size: 11px;
     padding: 2px 8px;
   }
 
@@ -618,5 +669,41 @@
 
   .scroll-hint {
     font-size: 9px;
+  }
+}
+
+@media (max-width: 400px) {
+  .content {
+    padding: 100px 4% 90px;
+    gap: 24px;
+  }
+
+  .left {
+    padding: 24px 18px;
+  }
+
+  .name-first {
+    font-size: 15px;
+  }
+
+  .name-last {
+    font-size: 29px;
+  }
+
+  .role {
+    font-size: 12px;
+  }
+
+  .bio {
+    font-size: 13px;
+  }
+
+  .avatar-wrap {
+    width: 155px;
+    height: 155px;
+  }
+
+  .pill {
+    font-size: 10px;
   }
 }
