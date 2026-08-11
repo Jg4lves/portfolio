@@ -35,29 +35,6 @@
   box-sizing: border-box;
 }
 
-.grid-overlay {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background-image:
-    linear-gradient(rgba(0, 255, 70, 0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 255, 70, 0.025) 1px, transparent 1px);
-  background-size: 44px 44px;
-}
-
-.scanlines {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: repeating-linear-gradient(
-    to bottom,
-    transparent 0px,
-    transparent 3px,
-    rgba(0, 0, 0, 0.12) 3px,
-    rgba(0, 0, 0, 0.12) 4px
-  );
-}
-
 .corner {
   position: absolute;
   width: 22px;
@@ -90,15 +67,6 @@
   position: relative;
   z-index: 1;
   width: 100%;
-}
-
-.section-label {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 4px;
-  color: rgba(0, 255, 70, 0.4);
-  text-transform: uppercase;
-  margin-bottom: 8px;
 }
 
 .section-title {
@@ -180,11 +148,41 @@
   animation: pulse 2.5s ease-out infinite;
 }
 
+.prompt-line {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  letter-spacing: 1px;
+  color: var(--green-dim);
+  margin-bottom: 18px;
+}
+
+.prompt-user {
+  color: var(--green-bright);
+}
+.prompt-path {
+  color: rgba(0, 255, 70, 0.85);
+}
+
+.prompt-typed {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid var(--green);
+  animation:
+    typeLine 1.6s steps(20, end) 0.3s both,
+    caret 0.9s step-end infinite;
+}
+
 .exp-content {
+  position: relative;
   flex: 1;
   border: 1px solid var(--green-border);
   padding: 28px 32px;
-  background: var(--green-faint);
+  background: linear-gradient(var(--green-faint), var(--green-faint)), var(--bg);
+  overflow: hidden;
   transition:
     border-color 0.3s ease,
     background 0.3s ease;
@@ -192,7 +190,39 @@
 
 .exp-content:hover {
   border-color: rgba(0, 255, 70, 0.3);
-  background: rgba(0, 255, 70, 0.06);
+  background: linear-gradient(rgba(0, 255, 70, 0.06), rgba(0, 255, 70, 0.06)), var(--bg);
+}
+
+.exp-content::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    linear-gradient(rgba(0, 255, 70, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 70, 0.025) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+.exp-content::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 3px,
+    rgba(0, 0, 0, 0.1) 3px,
+    rgba(0, 0, 0, 0.1) 4px
+  );
+}
+
+.exp-content > * {
+  position: relative;
+  z-index: 1;
 }
 
 .exp-header {
@@ -246,7 +276,7 @@
   font-family: var(--font-mono);
   font-size: 18px;
   line-height: 1.7;
-  color: rgba(0, 255, 70, 0.5);
+  color: white;
   margin: 0 0 20px;
 }
 
@@ -335,10 +365,6 @@
     padding: 50px 18px;
   }
 
-  .section-label {
-    font-size: 9px;
-    letter-spacing: 3px;
-  }
 
   .section-title {
     font-size: 26px;
@@ -346,7 +372,6 @@
     margin-bottom: 28px;
   }
 
-  /* 🔥 timeline simplificada */
   .timeline {
     padding-left: 20px;
   }
@@ -415,7 +440,7 @@
     padding: 2px 6px;
   }
 
-  .scanlines {
+  .exp-content::after {
     display: none;
   }
 
