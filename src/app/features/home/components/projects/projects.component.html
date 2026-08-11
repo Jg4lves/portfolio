@@ -1,23 +1,50 @@
 <section class="projects">
-  <div class="grid-overlay"></div>
-  <div class="scanlines"></div>
-
   <div class="corner c-tl"></div>
   <div class="corner c-tr"></div>
   <div class="corner c-bl"></div>
   <div class="corner c-br"></div>
 
   <div class="container">
-    <p class="section-label">&gt;_ ls ./projects</p>
-    <h2 class="section-title">Projetos</h2>
+    <div class="term-head">
+      <p class="prompt-line">
+        <span class="prompt-user">guest@root</span>:<span class="prompt-path">~/projects</span
+        >$&nbsp;<span class="prompt-typed">ls -la ./projects</span>
+      </p>
+
+      <h2 class="section-title">Projetos</h2>
+
+      <p class="proc-count">
+        // <b>{{ projects.length.toString().padStart(2, '0') }}</b> processos encontrados no
+        diretório
+      </p>
+    </div>
+
+    <div class="listing-head">
+      <span>Perm</span>
+      <span>PID</span>
+      <span>Nome</span>
+      <span>Status</span>
+    </div>
 
     <div class="cards-grid">
-      <div class="card" *ngFor="let project of projects; let i = index">
+      <div class="card" *ngFor="let project of projects; let i = index" [style.--i]="i">
+        <div class="card-meta">
+          <span class="perm">{{ project.perm }}</span>
+          <span class="pid">pid:{{ project.pid }}</span>
+          <span class="status-badge" [ngClass]="'status-' + project.status">
+            {{ project.status.replace('_', ' ') }}
+          </span>
+        </div>
+
         <div class="card-preview" [ngClass]="project.previewClass">
+          <div class="preview-frame">
+            <span class="f-tl"></span><span class="f-tr"></span> <span class="f-bl"></span
+            ><span class="f-br"></span>
+          </div>
+
           <ng-container *ngIf="project.id === 'psi'">
             <div class="psi-bg"></div>
             <div class="scan-line"></div>
-
             <div class="psi-icon">
               <div class="psi-cross"></div>
               <span class="preview-label">psychology.care</span>
@@ -26,7 +53,6 @@
 
           <ng-container *ngIf="project.id === 'space'">
             <div class="scan-line" style="animation-delay: 0.8s"></div>
-
             <div class="rocket">
               <svg class="rocket-svg" viewBox="0 0 44 44" fill="none">
                 <path
@@ -62,14 +88,12 @@
                   fill="none"
                 />
               </svg>
-
               <span class="preview-label">space-cruise.launch</span>
             </div>
           </ng-container>
 
           <ng-container *ngIf="project.id === 'app'">
             <div class="scan-line" style="animation-delay: 1.4s"></div>
-
             <div class="app-icon-wrap">
               <div class="app-ring">
                 <svg
@@ -86,26 +110,19 @@
                   <path d="M13.73 21a2 2 0 0 1-3.46 0" />
                 </svg>
               </div>
-
               <span class="preview-label">medAlert.app</span>
             </div>
           </ng-container>
         </div>
 
         <div class="card-body">
-          <span class="card-index"> // projeto {{ (i + 1).toString().padStart(2, '0') }} </span>
-
           <h3 class="card-name" [innerHTML]="project.name"></h3>
 
-          <p class="card-desc">
-            {{ project.desc }}
-          </p>
+          <p class="card-desc">{{ project.desc }}</p>
 
           <div class="card-footer">
             <div class="tags">
-              <span class="tag" *ngFor="let tag of project.tags">
-                {{ tag }}
-              </span>
+              <span class="tag" *ngFor="let tag of project.tags">{{ tag }}</span>
             </div>
 
             <div class="card-links">
@@ -115,9 +132,8 @@
                 target="_blank"
                 rel="noopener"
               >
-                [ {{ project.liveLabel }} ]
+                {{ project.liveLabel || 'run --live' }}
               </a>
-
               <a
                 class="btn-link"
                 *ngIf="project.githubUrl"
@@ -125,7 +141,7 @@
                 target="_blank"
                 rel="noopener"
               >
-                [ GitHub ]
+                view --source
               </a>
             </div>
           </div>
