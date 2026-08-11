@@ -26,10 +26,10 @@ interface Value {
   styleUrls: ['./about.component.css'],
 })
 export class AboutComponent {
-  readonly age = 21;
+  readonly age = 22;
 
   readonly stats: Stat[] = [
-    { value: '21',  label: 'anos' },
+    { value: '22',  label: 'anos' },
     { value: '4+',  label: 'anos codando' },
     { value: '∞',   label: 'páginas de caderno' },
   ];

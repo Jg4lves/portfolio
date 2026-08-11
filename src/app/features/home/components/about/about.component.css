@@ -5,10 +5,13 @@
   width: 100%;
 
   --green: #00ff46;
-  --green-dim: rgba(0, 255, 70, 0.45);
-  --green-faint: rgba(0, 255, 70, 0.04);
+  --green-bright: #7dffb0;
+  --green-dim: rgba(0, 255, 70, 0.65);
+  --green-faint: rgba(0, 255, 70, 0.08);
   --green-border: rgba(0, 255, 70, 0.12);
+  --text-body: rgba(214, 255, 226, 0.92);
   --bg: #010c03;
+  --panel-bg: rgba(1, 10, 4, 0.62);
   --font-mono: 'Share Tech Mono', 'Courier New', monospace;
   --font-display: 'Rajdhani', 'Courier New', monospace;
 }
@@ -141,7 +144,9 @@
   border: 1px solid var(--green-border);
   padding: 36px 40px;
   animation: fadeSlideDown 0.9s ease 0.1s both;
-  background: var(--green-faint);
+  background: var(--panel-bg);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   transition:
     border-color 0.3s ease,
     background 0.3s ease;
@@ -167,10 +172,11 @@
   font-size: 18px;
   line-height: 1.5;
   letter-spacing: 0.5px;
-  color: rgba(0, 255, 70, 0.5);
+  color: var(--text-body);
 
   span {
-    color: rgba(0, 255, 70, 0.9);
+    color: var(--green-bright);
+    font-weight: 700;
   }
   margin-right: 10%;
 }
