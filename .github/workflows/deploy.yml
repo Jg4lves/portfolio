@@ -36,7 +36,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4
         with:
-          path: ./dist/SEU_PROJETO/browser
+          path: ./dist/portfolio/browser
 
   deploy:
     needs: build
